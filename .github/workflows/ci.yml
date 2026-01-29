@@ -24,6 +24,6 @@ jobs:       # conjunto de etapas que rodam no mesmo ambiente
       # 4. Teste automatizado
       - name: Testar aplicação.  #nome que escolhi, garante permissão, espera iniciar e testa
         run: |
-          chmod +x test.sh.    
+          chmod +x test.sh    
           sleep 5
           ./test.sh
