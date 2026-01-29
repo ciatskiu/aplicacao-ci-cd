@@ -1,0 +1,29 @@
+name: CI com Docker
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar o repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # 2. Build da imagem Docker
+      - name: Build da imagem
+        run: docker build -t aplicacao-ci:1.0 .
+
+      # 3. Subir container
+      - name: Executar container
+        run: docker run -d -p 3000:3000 aplicacao-ci:1.0
+
+      # 4. Teste automatizado
+      - name: Testar aplicação
+        run: |
+          chmod +x test.sh
+          sleep 5
+          ./test.sh
