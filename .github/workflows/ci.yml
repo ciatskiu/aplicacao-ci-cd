@@ -5,7 +5,7 @@ on:         #define quando o pipeline vai rodar
     branches: [ main ]  #onde? na branch main!
 
 jobs:       # conjunto de etapas que rodam no mesmo ambiente
-  build-test2:       # Nome do job que eu escolhi
+  build-test:       # Nome do job que eu escolhi
     runs-on: ubuntu-latest #Define o sistema operacional do ambiente de execução.
 
     steps:  #passos
