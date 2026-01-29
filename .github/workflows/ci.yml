@@ -23,7 +23,7 @@ jobs:               # Conjunto de jobs do pipeline
         run: docker run -d -p 3000:3000 aplicacao-ci:1.0 # Executa o container em segundo plano
 
       # 4. Teste automatizado
-      - name: Testar aplicação # Executa testes automatizados da aplicação
+      - name: Testar aplicação # Executa testes automatizados da aplicação - permissão, aguarda iniciar e executa
         run: |
           chmod +x test.sh  # Garante permissão de execução do script
           sleep 5           # Aguarda alguns segundos para a aplicação iniciar
