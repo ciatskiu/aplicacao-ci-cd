@@ -1,29 +1,29 @@
-name: CI com Docker
+name: CI com Docker # nome do worflow / rótulo 
 
-on:
-  push:
-    branches: [ main ]
+on:         #define quando o pipeline vai rodar
+  push:     # sempre que acontecer um push
+    branches: [ main ]  #onde? na branch main!
 
-jobs:
-  build-test:
-    runs-on: ubuntu-latest
+jobs:       # conjunto de etapas que rodam no mesmo ambiente
+  build-test:       # Nome do job que eu escolhi
+    runs-on: ubuntu-latest #Define o sistema operacional do ambiente de execução.
 
-    steps:
+    steps:  #passos
       # 1. Clonar o repositório
-      - name: Checkout do código
-        uses: actions/checkout@v3
+      - name: Checkout do código.   #nome que escolhi
+        uses: actions/checkout@v3  #clona o repositório // equivalente git clone
 
       # 2. Build da imagem Docker
-      - name: Build da imagem
-        run: docker build -t aplicacao-ci:1.0 .
+      - name: Build da imagem       #nome que escolhi
+        run: docker build -t aplicacao-ci:1.0 .    #cria a imagem do docker
 
       # 3. Subir container
-      - name: Executar container
-        run: docker run -d -p 3000:3000 aplicacao-ci:1.0
+      - name: Executar container.    #nome que escolhi
+        run: docker run -d -p 3000:3000 aplicacao-ci:1.0  #Sobe a aplicação dentro de um container.
 
       # 4. Teste automatizado
-      - name: Testar aplicação
+      - name: Testar aplicação.  #nome que escolhi, garante permissão, espera iniciar e testa
         run: |
-          chmod +x test.sh
+          chmod +x test.sh.    
           sleep 5
           ./test.sh
